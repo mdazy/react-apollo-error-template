@@ -2,6 +2,15 @@ import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 
+type Person = {
+  id: string;
+  name: string;
+}
+
+type Response = {
+  people: Person[];
+}
+
 const PEOPLE_QUERY = gql`
   query ErrorTemplate {
     people {
@@ -11,7 +20,7 @@ const PEOPLE_QUERY = gql`
   }
 `;
 
-const withPeople = graphql( 
+const withPeople = graphql<{}, Response>( 
   PEOPLE_QUERY, {}
 );
 
