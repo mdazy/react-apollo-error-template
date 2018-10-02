@@ -24,6 +24,9 @@ const withPeople = graphql<{}, Response>(
   PEOPLE_QUERY, {}
 );
 
+// Type 'DataValue<Response, {}> | undefined' has no property 'loading' and no string index signature.
+// Type 'DataValue<Response, {}> | undefined' has no property 'people' and no string index signature.
+// Type 'DataValue<Response, {}> | undefined' has no property 'error' and no string index signature.
 export default withPeople( ( { data: { loading, people, error } } ) => {
   if( loading ) {
     return <p>Loading...</p>;
